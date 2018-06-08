@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+
 import './App.css';
+import WeatherIcon from './components/WeatherIcon';
+import WeatherDetails from './components/WeatherDetails';
 
 class App extends Component {
   state = {
@@ -31,6 +34,7 @@ class App extends Component {
           time,
           city,
           temperature: Math.rount(data.main.temp),
+          weatherCode: data.weather[0].id,
           fetching: false
         });
       })
@@ -45,7 +49,7 @@ class App extends Component {
   }
 
     render() {
-        const {detching, icon, time city, temperature. weatherCode} = this.state;
+        const { fetching, icon, time, city, temperature, weatherCode } = this.state;
 
         return fetching ?
             <div className="app">Загрузка...</div>
